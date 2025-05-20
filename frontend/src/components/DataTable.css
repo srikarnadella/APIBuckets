@@ -1,0 +1,29 @@
+.table-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+.csv-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #2c2c2c;
+}
+
+.csv-table th,
+.csv-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.csv-table th {
+  background-color: #f2f2f2;
+}
+
+.pagination {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

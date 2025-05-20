@@ -1,0 +1,23 @@
+.app-container {
+  display: flex;
+  padding: 20px;
+  background-color: #f4f6f9;
+  min-height: 100vh;
+  gap: 24px;
+}
+
+.sidebar {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.left-pane {
+  width: 25%;
+  margin-right: 20px;
+}
+
+.right-pane {
+  width: 75%;
+}
