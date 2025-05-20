@@ -6,29 +6,45 @@ const FileTable = ({ onFileSelect }) => {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/api")
-      .then((response) => {
-        setFiles(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching uploaded files:", error);
-      });
+    const fetchFiles = async () => {
+      try {
+        const res = await axios.get("http://localhost:8080/api");
+        setFiles(res.data);
+      } catch (err) {
+        console.error("Failed to load uploaded files", err);
+      }
+    };
+    fetchFiles();
   }, []);
 
+  const openApiDocs = (filename) => {
+    const swaggerUrl = `http://localhost:8080/swagger-ui/index.html#/dynamic-data-controller/getAllRowsUsingGET_1`;
+    window.open(swaggerUrl, "_blank");
+  };
+
   return (
-    <div className="file-table-container">
+    <div className="file-table">
       <h3>Uploaded Files</h3>
-      <ul className="file-list">
+      <ul>
         {files.map((file) => (
-          <li key={file} className="file-entry">
-            <span className="file-name">{file}</span>
-            <button
-              className="view-data-pill"
-              onClick={() => onFileSelect(file)}
-            >
-              View Data
-            </button>
+          <li key={file}>
+            <div className="file-entry">
+              <span>{file}</span>
+              <div className="file-buttons">
+                <button
+                  className="pill-button"
+                  onClick={() => onFileSelect(file)}
+                >
+                  View Data
+                </button>
+                <button
+                  className="pill-button secondary"
+                  onClick={() => openApiDocs(file)}
+                >
+                  API Docs
+                </button>
+              </div>
+            </div>
           </li>
         ))}
       </ul>

@@ -1,40 +1,49 @@
-.file-table-container {
+.file-table {
   margin-top: 20px;
 }
 
-.file-list {
+.file-table ul {
   list-style: none;
   padding: 0;
 }
 
 .file-entry {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2c2c2c;
+  background-color: #2a2a2a;
   padding: 10px 15px;
   margin-bottom: 10px;
   border-radius: 8px;
-  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.file-name {
-  font-size: 0.95rem;
-  flex-grow: 1;
+.file-entry span {
+  font-weight: bold;
+  color: #fff;
+  margin-right: 15px;
+  flex: 1;
 }
 
-.view-data-pill {
-  margin-left: 10px;
-  padding: 6px 16px;
+.file-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.pill-button {
+  padding: 6px 14px;
   border: none;
-  border-radius: 999px;
-  background-color: #007bff;
+  border-radius: 20px;
+  font-weight: 500;
+  background-color: #1e90ff;
   color: white;
-  font-size: 0.85rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s;
 }
 
-.view-data-pill:hover {
-  background-color: #0056b3;
+.pill-button.secondary {
+  background-color: #4a90e2;
+}
+
+.pill-button:hover {
+  background-color: #007bff;
 }

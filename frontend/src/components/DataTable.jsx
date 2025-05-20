@@ -5,7 +5,7 @@ import "./DataTable.css";
 const DataTable = ({ filename }) => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
-  const rowsPerPage = 50;
+  const [rowsPerPage, setRowsPerPage] = useState(50);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,9 +47,26 @@ const DataTable = ({ filename }) => {
         >
           Previous
         </button>
-        <span>
-          Page {page + 1} of {totalPages}
-        </span>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <span style={{ color: "black" }}>
+            Page {page + 1} of {totalPages}
+          </span>
+          <select
+            value={rowsPerPage}
+            onChange={(e) => {
+              setRowsPerPage(Number(e.target.value));
+              setPage(0);
+            }}
+          >
+            {[10, 25, 50, 100, 200].map((num) => (
+              <option key={num} value={num}>
+                {num} per page
+              </option>
+            ))}
+          </select>
+        </div>
+
         <button
           onClick={() => setPage((p) => Math.min(p + 1, totalPages - 1))}
           disabled={page >= totalPages - 1}

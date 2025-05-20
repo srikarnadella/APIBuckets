@@ -13,6 +13,7 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
+                        //Update this to whatever the localhost is off the react app
                         .allowedOrigins("http://localhost:5173")
                         .allowedMethods("*");
             }
