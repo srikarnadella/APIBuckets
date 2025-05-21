@@ -9,7 +9,9 @@ const DataTable = ({ filename }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(`http://localhost:8080/api/${filename}`);
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_BASE_URL}api/${filename}`
+      );
       setData(res.data);
       setPage(0);
     };

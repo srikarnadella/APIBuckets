@@ -9,7 +9,7 @@ const UploadForm = ({ onUpload }) => {
     const formData = new FormData();
     formData.append("file", file);
     try {
-      await axios.post("http://localhost:8080/upload", formData);
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}upload`, formData);
       onFileSelect(file.name.replace(".csv", ""));
       setFile(null);
     } catch {

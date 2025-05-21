@@ -8,7 +8,7 @@ const FileTable = ({ onFileSelect }) => {
   useEffect(() => {
     const fetchFiles = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/api");
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}api`);
         setFiles(res.data);
       } catch (err) {
         console.error("Failed to load uploaded files", err);
@@ -18,7 +18,9 @@ const FileTable = ({ onFileSelect }) => {
   }, []);
 
   const openApiDocs = (filename) => {
-    const swaggerUrl = `http://localhost:8080/swagger-ui/index.html#/dynamic-data-controller/getAllRowsUsingGET_1`;
+    const swaggerUrl = `${
+      import.meta.env.VITE_API_BASE_URL
+    }swagger-ui/index.html#/dynamic-data-controller/getAllRowsUsingGET_1`;
     window.open(swaggerUrl, "_blank");
   };
 

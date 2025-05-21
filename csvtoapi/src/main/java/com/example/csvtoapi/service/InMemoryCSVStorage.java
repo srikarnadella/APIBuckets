@@ -1,15 +1,19 @@
 package com.example.csvtoapi.service;
 
-import com.example.csvtoapi.model.FilterCondition;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import com.example.csvtoapi.model.FilterCondition;
 
 @Service
 public class InMemoryCSVStorage {
 
-    // filename → List of rows (row = Map<column, value>)
     private final Map<String, List<Map<String, String>>> storage = new HashMap<>();
 
     public void save(String filename, List<Map<String, String>> data) {

@@ -10,7 +10,9 @@ const MetadataCard = ({ filename }) => {
   useEffect(() => {
     const fetchMetadata = async () => {
       try {
-        const res = await axios.get(`http://localhost:8080/api/${filename}`);
+        const res = axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}api/${filename}`
+        );
         const firstRow = res.data[0] || {};
         setMetadata({
           rowCount: res.data.length,

@@ -24,7 +24,6 @@ public class FilterCondition {
             }
         }
 
-        // Add ~= for partial match
         String[] ops = {">=", "<=", ">", "<", "=", "~="};
         for (String op : ops) {
             if (rawValue.startsWith(op)) {
@@ -32,7 +31,7 @@ public class FilterCondition {
             }
         }
 
-        // Default to equals
+        //Default to equals
         return new FilterCondition(column, "=", rawValue);
     }
 
@@ -43,7 +42,7 @@ public class FilterCondition {
         if (rowVal == null) return false;
 
         try {
-            // Numeric comparison block
+            //numeric comparison block
             double actual = Double.parseDouble(rowVal);
             double expected = Double.parseDouble(value);
 
@@ -61,10 +60,10 @@ public class FilterCondition {
             };
 
         } catch (NumberFormatException e) {
-            // Fallback to string comparisons if not a number
+            //goes to string comparisons if not a number
             return switch (operator) {
                 case "=" -> rowVal.equalsIgnoreCase(value);
-                case "~=" -> rowVal.toLowerCase().contains(value.toLowerCase()); // ✅ partial match
+                case "~=" -> rowVal.toLowerCase().contains(value.toLowerCase());
                 default -> false;
             };
         }

@@ -11,7 +11,6 @@ const App = () => {
 
   return (
     <div className="app-container" style={{ backgroundColor: "#1c1c1c" }}>
-      {/* Top Header */}
       <header
         style={{
           backgroundColor: "#1c1c1c",
@@ -26,7 +25,6 @@ const App = () => {
         CSV to API Dashboard
       </header>
 
-      {/* Left and Right Panes */}
       <div className="main-content" style={{ display: "flex" }}>
         <div
           className="left-pane"
