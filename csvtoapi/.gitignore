@@ -38,3 +38,8 @@ out/
 
 ### VS Code ###
 .vscode/
+
+
+deploy.zip
+gradle/
+Procfile
